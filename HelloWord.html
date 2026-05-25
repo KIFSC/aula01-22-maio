@@ -27,5 +27,32 @@
     <td>F</td>
    </tr>
   </table>
+  <canvas id="canvas" width="1920" height="1080"></canvas>
+  <script>
+    let ctx = canvas.getContext("2d")
+    var mouseEvent;
+    desenhando = false;
+
+    canvas.addEventListener("mousedown", () => {
+      desenhando = true;
+      ctx.moveTo(evento.offsetX , evento.offsetY)
+    })
+
+
+    canvas.addEventListener("mouseup", () => {
+      desenhando = false;
+    })
+
+
+    canvas.addEventListener("mousemove", (evento) => {
+        mouseEvent = evento
+ ctx.moveTo(evento.offsetX -1, evento.offsetY -1)
+        if(desenhando){
+        ctx.lineTo(evento.offsetX , evento.offsetY )
+        ctx.stroke();
+        }
+       
+    })
+  </script>
 </body>
 </html>
